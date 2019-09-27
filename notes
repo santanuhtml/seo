@@ -1,5 +1,9 @@
 # seo
-Gzip Activation:
+1. Gzip Activation
+2. Title Adding on index.php
+
+
+1. Gzip Activation:
 Gzip compression is an effective way to save bandwidth and speed up your site.
 Both W3 Total Cache and WP Super Cache offer Gzip parameters for WordPress and for html add
 this code in .htaccess page given below:
@@ -16,3 +20,35 @@ this code in .htaccess page given below:
 </ifModule>
 -------------------------------
 url: https://www.ostraining.com/blog/webdesign/use-gzip-to-speed-up-your-cms-powered-website/
+
+
+2. Title Adding on index.php
+step1: Add this code after <head> tag on header.php file
+-----------------------------
+  <?php  
+      if (isset($title, $description, $keywords)) {
+          ?>
+          <title><?php echo $title; ?></title>
+          <meta name="description" content="<?php echo $description; ?>">
+          <meta name="keywords" content="<?php echo $keywords; ?>">
+          <?php
+          
+       }else {
+          ?>
+          <title>Project Name in Kolkata</title>
+          <meta name="description" content="Free Web tutorials">
+          <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+          <?php
+      }
+    ?>
+-----------------------------
+step2: Now add page title, description, keywords on proper page
+-----------------------------
+<?php 
+ 	$title = "" ;
+ 	$description = "" ;
+ 	$keywords = "" ;
+ 	include('includes/header.php');
+?>
+-----------------------------
+
